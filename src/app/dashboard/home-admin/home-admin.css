@@ -1,0 +1,15 @@
+.dashboard {
+  max-width: 800px;
+  margin: auto;
+}
+
+.item-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.item-card button {
+  margin-right: 5px;
+  margin-top: 5px;
+}

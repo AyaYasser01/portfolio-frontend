@@ -1,0 +1,56 @@
+@for (item of aboutData(); track item) {
+  <section id="about" class="about-section">
+  <div class="container">
+    <h2>About Me</h2>
+    <p class="description">{{ item.description }}</p>
+
+    <!-- Skills -->
+    <div class="skills-card">
+      <h3>Skills</h3>
+      <div class="skills-list">
+        @for (skill of item.skills; track skill) {
+                  <span class="skill-badge" >{{ skill }}</span>
+        }
+
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="education-card">
+      <h3>Education</h3>
+      <p>{{ item.education.degree }} - {{ item.education.university }} ({{ item.education.year }})</p>
+    </div>
+
+    <!-- Services -->
+    <div class="services-card">
+      <h3>Services</h3>
+      <div class="services-list">
+        @for (service of item.services; track service) {
+                  <div class="service-item" >
+          <i [class]="service.icon"></i>
+          <div>
+            <h4>{{ service.name }}</h4>
+            <p>{{ service.description }}</p>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="experience-card">
+      <h3>Experience</h3>
+      <div class="experience-list">
+        @for (experience of item.experience; track experience) {
+                  <div class="exp-item">
+          <h4>{{ experience.jobTitle }} - {{ experience.company }}</h4>
+          <span>{{ experience.years }}</span>
+          <p>{{ experience.description }}</p>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+}

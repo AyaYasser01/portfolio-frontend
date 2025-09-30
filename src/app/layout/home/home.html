@@ -1,0 +1,21 @@
+@for(item of homeData(); track item){
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h3>Hello,My name is</h3>
+    <h1>{{item.name}}</h1>
+    <h2>I'm a {{item.title}}</h2>
+    <p> {{item.description}}
+    </p>
+    <div class="links">
+      <a [href]="item.links.github" target="_blank">GitHub</a>
+      <a [href]="item.links.linkedin" target="_blank">LinkedIn</a>
+    </div>
+    <div class="btns">
+      <a [href]="'http://localhost:3000' + item.links.cv" class="btn">Download CV</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img [src]="'http://localhost:3000' + item.img" [alt]="item.name">
+  </div>
+</section>
+}

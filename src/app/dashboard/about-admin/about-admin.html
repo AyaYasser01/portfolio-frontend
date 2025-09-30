@@ -1,0 +1,94 @@
+<div class="dashboard">
+  <h2>About Admin Dashboard</h2>
+  <button (click)="addItem()">Add New About Item</button>
+
+  <div *ngFor="let item of aboutData" class="about-card">
+
+    <!-- Description -->
+    <h3>Description</h3>
+    <div *ngIf="editingId === item._id; else viewDesc">
+      <textarea [(ngModel)]="item.description" rows="3"></textarea>
+    </div>
+    <ng-template #viewDesc>
+      <p>{{ item.description }}</p>
+    </ng-template>
+
+    <!-- Skills -->
+    <h4>Skills</h4>
+    <div *ngIf="editingId === item._id; else viewSkills">
+      <div class="skill-inputs">
+        <input #skillInput placeholder="New skill"/>
+        <button type="button" (click)="addSkill(item, skillInput.value); skillInput.value=''">Add</button>
+      </div>
+      <div class="skills-list">
+        <span *ngFor="let skill of item.skills; let i=index" class="skill-badge">
+          {{ skill }} <i (click)="removeSkill(item,i)">×</i>
+        </span>
+      </div>
+    </div>
+    <ng-template #viewSkills>
+      <div class="skills-list">
+        <span *ngFor="let skill of item.skills" class="skill-badge">{{ skill }}</span>
+      </div>
+    </ng-template>
+
+    <!-- Education -->
+    <h4>Education</h4>
+    <div *ngIf="editingId === item._id; else viewEdu">
+      <input [(ngModel)]="item.education.degree" placeholder="Degree"/>
+      <input [(ngModel)]="item.education.university" placeholder="University"/>
+      <input [(ngModel)]="item.education.year" placeholder="Year"/>
+    </div>
+    <ng-template #viewEdu>
+      <p>{{ item.education.degree }} - {{ item.education.university }} ({{ item.education.year }})</p>
+    </ng-template>
+
+    <!-- Services -->
+    <h4>Services</h4>
+    <div *ngFor="let service of item.services; let i=index">
+      <div *ngIf="editingId === item._id; else viewService">
+        <input [(ngModel)]="item.services[i].name" placeholder="Service Name"/>
+        <input [(ngModel)]="item.services[i].description" placeholder="Description"/>
+        <input [(ngModel)]="item.services[i].icon" placeholder="Icon Class"/>
+        <button type="button" (click)="removeService(item,i)">Remove</button>
+      </div>
+      <ng-template #viewService>
+        <div class="service-item">
+          <i [class]="service.icon"></i>
+          <h5>{{ service.name }}</h5>
+          <p>{{ service.description }}</p>
+        </div>
+      </ng-template>
+    </div>
+    <button *ngIf="editingId === item._id" type="button" (click)="addService(item)">+ Add Service</button>
+
+    <!-- Experience -->
+    <h4>Experience</h4>
+    <div *ngFor="let exp of item.experience; let i=index">
+      <div *ngIf="editingId === item._id; else viewExp">
+        <input [(ngModel)]="item.experience[i].jobTitle" placeholder="Job Title"/>
+        <input [(ngModel)]="item.experience[i].company" placeholder="Company"/>
+        <input [(ngModel)]="item.experience[i].years" placeholder="Years"/>
+        <textarea [(ngModel)]="item.experience[i].description" placeholder="Description" rows="2"></textarea>
+        <button type="button" (click)="removeExperience(item,i)">Remove</button>
+      </div>
+      <ng-template #viewExp>
+        <div class="exp-item">
+          <h5>{{ exp.jobTitle }} - {{ exp.company }}</h5>
+          <span>{{ exp.years }}</span>
+          <p>{{ exp.description }}</p>
+        </div>
+      </ng-template>
+    </div>
+    <button *ngIf="editingId === item._id" type="button" (click)="addExperience(item)">+ Add Experience</button>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button *ngIf="editingId !== item._id" (click)="startEdit(item._id!)">Edit</button>
+      <button *ngIf="editingId === item._id" (click)="saveEdit(item)">Save</button>
+      <button *ngIf="editingId === item._id" (click)="cancelEdit()">Cancel</button>
+      <button (click)="deleteItem(item._id!)">Delete</button>
+    </div>
+
+  </div>
+</div>

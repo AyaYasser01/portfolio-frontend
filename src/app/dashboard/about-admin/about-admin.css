@@ -1,0 +1,137 @@
+/* Container */
+.dashboard {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.dashboard h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Add button */
+.dashboard > button {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dashboard > button:hover {
+  background-color: #0056b3;
+}
+
+/* Card */
+.about-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Headings inside card */
+.about-card h3,
+.about-card h4 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Inputs & Textareas */
+.about-card input,
+.about-card textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Skills list */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.skill-badge {
+  background-color: #007bff;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.skill-inputs {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.skill-badge i {
+  margin-left: 5px;
+  cursor: pointer;
+  font-style: normal;
+  color: red;
+}
+
+/* Services & Experience items */
+.service-item, .exp-item {
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.service-item i {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+.service-item h5,
+.exp-item h5 {
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.exp-item span {
+  display: block;
+  font-size: 13px;
+  color: #666;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 15px;
+}
+
+.buttons button {
+  margin-right: 8px;
+  margin-top: 5px;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.buttons button:nth-child(1) { background-color: #28a745; } /* Edit */
+.buttons button:nth-child(2) { background-color: #007bff; } /* Save */
+.buttons button:nth-child(3) { background-color: #6c757d; } /* Cancel */
+.buttons button:nth-child(4) { background-color: #dc3545; } /* Delete */
+
+.buttons button:hover {
+  opacity: 0.85;
+}

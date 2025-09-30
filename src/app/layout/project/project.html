@@ -1,0 +1,20 @@
+<section id="projects" class="projects-section">
+  <div class="container">
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      @for (item of projectData(); track item) {
+      <div class="project-card">
+        <img [src]="'http://localhost:3000' + item.imageUrl" alt="{{ item.title }}">
+        <div class="project-info">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          <div class="project-links">
+            <a [href]="item.githubLink" target="_blank">GitHub</a>
+            <a [href]="item.demoLink" target="_blank">Demo</a>
+          </div>
+        </div>
+      </div>
+    }
+    </div>
+  </div>
+</section>

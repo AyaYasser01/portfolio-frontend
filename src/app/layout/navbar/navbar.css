@@ -1,0 +1,88 @@
+/* ====== Header ====== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1a1a1a; /* أبيض غامق قوي */
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ====== Logo ====== */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e0e0e0; /* رمادي فاتح */
+  letter-spacing: 1px;
+}
+
+/* ====== Navbar Links ====== */
+#navbar {
+  display: flex;
+  gap: 25px;
+  transition: all 0.3s ease;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: #fff; /* أبيض */
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#navbar a:hover {
+  color: #999; /* رمادي متوسط */
+  transform: translateY(-2px);
+}
+
+/* ====== Toggler Button (Mobile) ====== */
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: 1px solid #999;
+  padding: 5px 12px;
+  font-size: 20px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #e0e0e0;
+}
+
+/* ====== Responsive Navbar ====== */
+@media (max-width: 768px) {
+  #navbar {
+    position: absolute;
+    top: 60px; /* تحت الهيدر */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: #1a1a1a; /* نفس خلفية الهيدر */
+    padding: 15px 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* لما يتفتح */
+  #navbar.active {
+    max-height: 300px;
+    opacity: 1;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+}
+

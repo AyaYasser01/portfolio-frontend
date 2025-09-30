@@ -1,0 +1,18 @@
+<!-- Header -->
+<header>
+  <div class="logo">Aya Yasser</div>
+
+
+  <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+    ☰
+  </button>
+
+
+  <nav id="navbar" [class.active]="menuOpen">
+    @for(item of navBar; track item) {
+      <a [routerLink]="item" (click)="toggleMenu()">
+        {{ firstLetterIsCapital(item) }}
+      </a>
+    }
+  </nav>
+</header>

@@ -1,0 +1,17 @@
+<div class="dashboard">
+  <h2>Home Admin Dashboard</h2>
+  <button (click)="loadHomeData()">Show Item</button>
+
+  <div *ngFor="let item of homeData" class="item-card">
+    <h3>{{item.name}}</h3>
+    <p>{{item.title}}</p>
+    <p>{{item.description}}</p>
+    <div class="links">
+      <a [href]="item.links.github" target="_blank">GitHub</a>
+      <a [href]="item.links.linkedin" target="_blank">LinkedIn</a>
+      <a [href]="item.links.cv" target="_blank">CV</a>
+    </div>
+    <button (click)="editItem(item)">Edit</button>
+    <button (click)="deleteItem(item._id!)">Delete</button>
+  </div>
+</div>
